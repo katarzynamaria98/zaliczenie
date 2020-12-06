@@ -1,0 +1,13 @@
+2. select en.firstName, en.lastName, en.employeeNumber, count(*) customers_number from customers c 
+join employees en on en.employeeNumber = c.salesRepEmployeeNumber 
+join offices o on en.officeCode = o.officeCode
+group by en.employeeNumber;
+
+4A select year(o.orderDate) rok, count(*) ilosc from orderdetails od 
+join orders o on od.orderNumber = o.orderNumber 
+join products p on p.productCode = od.productCode 
+where productName = '1969 Harley Davidson Ultimate Chopper'
+group by rok;
+
+4B select pl.*, count(*) productionQuantity from productlines pl
+join products p on p.productLine = pl.productLine group by p.productLine having productionQuantity > 10;	
